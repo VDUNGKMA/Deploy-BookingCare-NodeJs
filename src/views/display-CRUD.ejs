@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: coral;
+    }
+
+    a.btn-delete {
+        background: red;
+        color: black;
+    }
+
+    a.btn-edit {
+        background: yellow;
+        color: black;
+    }
+</style>
+
+<body>
+    <table>
+        <tr>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Action</th>
+        </tr>
+
+
+        <% getAllUser.forEach(user=> { %>
+            <tr>
+                <td>
+                    <%= user.email %>
+                </td>
+                <td>
+                    <%= user.firstName %>
+                </td>
+                <td>
+                    <%= user.lastName %>
+                </td>
+                <td>
+                    <a href=" /edit-crud?id=<%= user.id%> " class="btn-edit">Edit</a>
+                    <a href="/delete-crud?id=<%= user.id%>" class="btn-delete"
+                        onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+
+            <% }); %>
+
+
+
+
+    </table>
+</body>
+
+</html>
